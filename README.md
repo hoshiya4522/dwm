@@ -1,3 +1,4 @@
+![dwm](https://dwm.suckless.org/dwm.svg)
 # Hoshiya's Fork Of Dynamic Window Manager(DWM)
 My custom build of [dwm](https://dwm.suckless.org)
 
