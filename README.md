@@ -24,4 +24,5 @@ sudo make clean install
 > - libxcb
 > - Xlib-libxcb
 > - xcb-res
+
 Better explanation [Luke Smith's Video on window swallowing](https://youtube.com/watch?v=92uo5OBOKfY)
