@@ -97,6 +97,9 @@ static Key keys[] = {
 	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
+ 	{ MODKEY|ShiftMask,             XK_h,      setcfact,       {.f = +0.25} },
+ 	{ MODKEY|ShiftMask,             XK_l,      setcfact,       {.f = -0.25} },
+ 	{ MODKEY|ShiftMask,             XK_o,      setcfact,       {.f =  0.00} },
 	{ MODKEY,                       XK_z, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
     { MODKEY,                       XK_q,      killclient,     {0} },
@@ -129,9 +132,9 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
  	{ MODKEY,                       XK_n,      togglealttag,   {0} },
-	/* { MODKEY,                       XK_minus,  setgaps,        {.i = -1 } }, */
-	/* { MODKEY,                       XK_equal,  setgaps,        {.i = +1 } }, */
-	/* { MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = 0  } }, */
+	{ MODKEY|ALT,                       XK_minus,  setgaps,        {.i = -1 } },
+	{ MODKEY|ALT,                       XK_equal,  setgaps,        {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = 0  } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
