@@ -1,7 +1,7 @@
 //Modify this file to change what commands output to your statusbar, and recompile using the make command.
 static const Block blocks[] = {
 	/*Icon*/	/*Command*/		/*Update Interval*/	/*Update Signal*/
-    {"",	"echo [$(\"sb-nettraf\")]",	1,	16},
+    {"",	"echo [$(\"sb-nettraf\")]",	1,	1},
     {"",	"echo [$(\"sb-clock\")]",	60,	16},
 };
 
