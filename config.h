@@ -37,6 +37,7 @@ static const Rule rules[] = {
 	/* class     instance  title           tags mask  isfloating  isterminal  noswallow  monitor */
 	{ "Gimp",      NULL,     NULL,           0,         1,          0,           0,        -1 },
 	{ "Firefox",   NULL,     NULL,           1 << 8,    0,          0,          -1,        -1 },
+	{ "st",        NULL,     NULL,           0,         0,          1,           0,        -1 },
 	{ "Alacritty", NULL,     NULL,           0,         0,          1,           0,        -1 },
 	{ NULL,        NULL,     "Event Tester", 0,         0,          0,           1,        -1 }, /* xev */
 };
@@ -71,7 +72,9 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *termcmd[]  = { "alacritty", NULL };
+
+static const char *st[]  = { "alacritty", NULL };
+static const char *alacritty[]  = { "alacritty", NULL };
 
 static const char *firefox[]  = { "firefox", NULL };
 static const char *screenshot[]  = { "screenshot", NULL };
@@ -79,13 +82,13 @@ static const char *selectScreenshot[]  = { "select-screenshot", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ ALT,                       XK_b,      spawn,          {.v = firefox } },
-	{ ALT,                       XK_s,      spawn,          {.v = screenshot } },
-	{ ALT|ShiftMask,                       XK_s,      spawn,          {.v = selectScreenshot } },
+	{ ALT,                          XK_b,      spawn,          {.v = firefox } },
+	{ ALT,                          XK_s,      spawn,          {.v = screenshot } },
+	{ ALT|ShiftMask,                XK_s,      spawn,          {.v = selectScreenshot } },
 
 	{ MODKEY,                       XK_r,      spawn,          {.v = dmenucmd } },
-	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
-	/* { MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } }, */
+	{ MODKEY,                       XK_Return, spawn,          {.v = st } },
+	/* { MODKEY|ShiftMask,             XK_Return, spawn,          {.v = st } }, */
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
@@ -147,7 +150,7 @@ static Button buttons[] = {
 	{ ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
 	{ ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[2]} },
 	{ ClkWinTitle,          0,              Button2,        zoom,           {0} },
-	/* { ClkStatusText,        0,              Button2,        spawn,          {.v = termcmd } }, */
+	/* { ClkStatusText,        0,              Button2,        spawn,          {.v = st } }, */
  	{ ClkStatusText,        0,              Button1,        sigstatusbar,   {.i = 1} },
  	{ ClkStatusText,        0,              Button2,        sigstatusbar,   {.i = 2} },
  	{ ClkStatusText,        0,              Button3,        sigstatusbar,   {.i = 3} },
