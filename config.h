@@ -41,7 +41,8 @@ static const char tmp2[]      = "#8FCBD9";
 static const char *colors[][3]      = {
 	/*                 fg       bg       border   */
 	[SchemeNorm]   = { nord_05, nord_00, nord_08 },
-	[SchemeSel]    = { nord_06, nord_03, nord_04 },
+	/* [SchemeSel]    = { nord_06, nord_03, nord_04 }, */
+	[SchemeSel] = { nord_00, nord_08, nord_04},
 	[SchemeTitle]  = { nord_06, nord_00, nord_04 },
 };
 
