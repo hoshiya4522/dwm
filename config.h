@@ -101,12 +101,19 @@ static const char *alacritty[]  = { "alacritty", NULL };
 static const char *firefox[]  = { "firefox", NULL };
 static const char *screenshot[]  = { "screenshot", NULL };
 static const char *selectScreenshot[]  = { "select-screenshot", NULL };
+static const char *upvol[]   = { "/usr/bin/pactl", "set-sink-volume", "0", "+5%",     NULL };
+static const char *downvol[] = { "/usr/bin/pactl", "set-sink-volume", "0", "-5%",     NULL };
+static const char *mutevol[] = { "/usr/bin/pactl", "set-sink-mute",   "0", "toggle",  NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ ALT,                          XK_b,      spawn,          {.v = firefox } },
 	{ ALT,                          XK_s,      spawn,          {.v = screenshot } },
 	{ ALT|ShiftMask,                XK_s,      spawn,          {.v = selectScreenshot } },
+
+	{ ALT,                          XK_equal,  spawn,          {.v = upvol } },
+	{ ALT,                          XK_minus,  spawn,          {.v = downvol } },
+	{ ALT,                          XK_0,      spawn,          {.v = mutevol } },
 
 	{ MODKEY,                       XK_r,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = alacritty } },
