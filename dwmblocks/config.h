@@ -1,9 +1,10 @@
 //Modify this file to change what commands output to your statusbar, and recompile using the make command.
 static const Block blocks[] = {
-	/*Icon*/	/*Command*/		/*Update Interval*/	/*Update Signal*/
-    {" ",	"echo [$(\"sb-nettraf\")]",	1,	1},
-    {"",	"sb-battery",	5,	10},
-    {"",	"echo [$(\"sb-clock\")]",	60,	16},
+	/*Icon*/	/*Command*/		    /*Update Interval*/	/*Update Signal*/
+    {" ",	"echo [$(\"sb-nettraf\")]",	    1,	1},
+    {"",	"sb-battery",	                5,	10},
+    {"",	"echo [墳 $(\"get-volume\")%]",	0,	2},
+    {"",	"echo [$(\"sb-clock\")]",	    60,	16},
 };
 
 //Sets delimiter between status commands. NULL character ('\0') means no delimiter.

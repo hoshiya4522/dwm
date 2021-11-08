@@ -41,7 +41,8 @@ static const char tmp2[]      = "#8FCBD9";
 static const char *colors[][3]      = {
 	/*                 fg       bg       border   */
 	[SchemeNorm]   = { nord_05, nord_00, nord_08 },
-	[SchemeSel]    = { nord_06, nord_03, nord_04 },
+	/* [SchemeSel]    = { nord_06, nord_03, nord_04 }, */
+	[SchemeSel] = { nord_00, nord_08, nord_04},
 	[SchemeTitle]  = { nord_06, nord_00, nord_04 },
 };
 
@@ -68,7 +69,7 @@ static const Rule rules[] = {
 static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
-static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
+static const int lockfullscreen = 0; /* 1 will force focus on the fullscreen window */
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
@@ -94,18 +95,25 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", nord_00, "-nf", nord_05, "-sb", nord_08, "-sf", nord_06, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", nord_00, "-nf", nord_05, "-sb", nord_08, "-sf", nord_00, NULL };
 /* static const char *st[]  = { "st", NULL }; */
 static const char *alacritty[]  = { "alacritty", NULL };
 static const char *firefox[]  = { "firefox", NULL };
 static const char *screenshot[]  = { "screenshot", NULL };
 static const char *selectScreenshot[]  = { "select-screenshot", NULL };
+static const char *upvol[]   = { "vol-up",     NULL };
+static const char *downvol[]   = { "vol-down",     NULL };
+static const char *mutevol[] = { "vol-mute",  NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ ALT,                          XK_b,      spawn,          {.v = firefox } },
 	{ ALT,                          XK_s,      spawn,          {.v = screenshot } },
 	{ ALT|ShiftMask,                XK_s,      spawn,          {.v = selectScreenshot } },
+
+	{ ALT,                          XK_equal,  spawn,          {.v = upvol } },
+	{ ALT,                          XK_minus,  spawn,          {.v = downvol } },
+	{ ALT,                          XK_0,      spawn,          {.v = mutevol } },
 
 	{ MODKEY,                       XK_r,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = alacritty } },

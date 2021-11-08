@@ -69,7 +69,7 @@ static const Rule rules[] = {
 static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
-static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
+static const int lockfullscreen = 0; /* 1 will force focus on the fullscreen window */
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
@@ -101,9 +101,9 @@ static const char *alacritty[]  = { "alacritty", NULL };
 static const char *firefox[]  = { "firefox", NULL };
 static const char *screenshot[]  = { "screenshot", NULL };
 static const char *selectScreenshot[]  = { "select-screenshot", NULL };
-static const char *upvol[]   = { "/usr/bin/pactl", "set-sink-volume", "0", "+5%",     NULL };
-static const char *downvol[] = { "/usr/bin/pactl", "set-sink-volume", "0", "-5%",     NULL };
-static const char *mutevol[] = { "/usr/bin/pactl", "set-sink-mute",   "0", "toggle",  NULL };
+static const char *upvol[]   = { "vol-up",     NULL };
+static const char *downvol[]   = { "vol-down",     NULL };
+static const char *mutevol[] = { "vol-mute",  NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
