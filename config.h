@@ -9,8 +9,8 @@ static const int swallowfloating    = 0;        /* 1 means swallow floating wind
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 
-static const char *fonts[] = {"agave Nerd Font:style=Regular;size=8"};
-static const char dmenufont[]       = "agave Nerd Font:style=Regular;size=8";
+static const char *fonts[]      = { "agave Nerd Font:style=Regular;size=8" };
+static const char dmenufont[]   = "agave Nerd Font:style=Regular;size=8";
 
 
 
@@ -35,14 +35,11 @@ static const char nord_13[]       = "#ebcb8b";
 static const char nord_14[]       = "#a3be8c";
 static const char nord_15[]       = "#b48ead";
 
-static const char tmp[]       = "";
-static const char tmp2[]      = "#8FCBD9";
 
 static const char *colors[][3]      = {
 	/*                 fg       bg       border   */
 	[SchemeNorm]   = { nord_05, nord_00, nord_08 },
-	/* [SchemeSel]    = { nord_06, nord_03, nord_04 }, */
-	[SchemeSel] = { nord_00, nord_08, nord_04},
+	[SchemeSel]    = { nord_00, nord_08, nord_04},
 	[SchemeTitle]  = { nord_06, nord_00, nord_04 },
 };
 
