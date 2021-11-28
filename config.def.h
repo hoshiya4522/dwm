@@ -105,6 +105,7 @@ static const char *upvol[]   = { "vol-up",     NULL };
 static const char *downvol[]   = { "vol-down",     NULL };
 static const char *mutevol[] = { "vol-mute",  NULL };
 
+#include "movestack.c"
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ ALT,                          XK_b,      spawn,          {.v = firefox } },
@@ -129,6 +130,8 @@ static Key keys[] = {
  	{ MODKEY|ShiftMask,             XK_l,      setcfact,       {.f = -0.25} },
  	{ MODKEY|ShiftMask,             XK_o,      setcfact,       {.f =  0.00} },
 	{ MODKEY,                       XK_z, zoom,           {0} },
+ 	{ MODKEY|ShiftMask,             XK_j,      movestack,      {.i = +1 } },
+ 	{ MODKEY|ShiftMask,             XK_k,      movestack,      {.i = -1 } },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
     { MODKEY,                       XK_q,      killclient,     {0} },
 	/* { MODKEY|ShiftMask,             XK_c,      killclient,     {0} }, */

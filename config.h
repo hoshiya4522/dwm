@@ -9,8 +9,8 @@ static const int swallowfloating    = 0;        /* 1 means swallow floating wind
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 
-static const char *fonts[]      = { "agave Nerd Font:style=Regular;size=8" };
-static const char dmenufont[]   = "agave Nerd Font:style=Regular;size=8";
+static const char *fonts[] = {"agave Nerd Font:style=Regular;size=8"};
+static const char dmenufont[]       = "agave Nerd Font:style=Regular;size=8";
 
 
 
@@ -35,11 +35,14 @@ static const char nord_13[]       = "#ebcb8b";
 static const char nord_14[]       = "#a3be8c";
 static const char nord_15[]       = "#b48ead";
 
+static const char tmp[]       = "";
+static const char tmp2[]      = "#8FCBD9";
 
 static const char *colors[][3]      = {
 	/*                 fg       bg       border   */
 	[SchemeNorm]   = { nord_05, nord_00, nord_08 },
-	[SchemeSel]    = { nord_00, nord_08, nord_04},
+	/* [SchemeSel]    = { nord_06, nord_03, nord_04 }, */
+	[SchemeSel] = { nord_00, nord_08, nord_04},
 	[SchemeTitle]  = { nord_06, nord_00, nord_04 },
 };
 
@@ -102,6 +105,7 @@ static const char *upvol[]   = { "vol-up",     NULL };
 static const char *downvol[]   = { "vol-down",     NULL };
 static const char *mutevol[] = { "vol-mute",  NULL };
 
+#include "movestack.c"
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ ALT,                          XK_b,      spawn,          {.v = firefox } },
@@ -126,6 +130,8 @@ static Key keys[] = {
  	{ MODKEY|ShiftMask,             XK_l,      setcfact,       {.f = -0.25} },
  	{ MODKEY|ShiftMask,             XK_o,      setcfact,       {.f =  0.00} },
 	{ MODKEY,                       XK_z, zoom,           {0} },
+ 	{ MODKEY|ShiftMask,             XK_j,      movestack,      {.i = +1 } },
+ 	{ MODKEY|ShiftMask,             XK_k,      movestack,      {.i = -1 } },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
     { MODKEY,                       XK_q,      killclient,     {0} },
 	/* { MODKEY|ShiftMask,             XK_c,      killclient,     {0} }, */
