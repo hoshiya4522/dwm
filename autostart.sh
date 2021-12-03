@@ -1,4 +1,6 @@
-bash $HOME/.scripts/vboxres &
-dwmblocks &
-feh ~/Pictures/Wallpapers/acyclovir.png --bg-fill &
-dwm >/dev/null 2>&1 &
+while true; do
+	bash $HOME/.scripts/vboxres &
+	dwmblocks &
+	feh ~/Git/dwm/wallpapers/tokyonight/tokyonight.jpg --bg-fill &
+	dwm >/dev/null 2>&1 
+done &
