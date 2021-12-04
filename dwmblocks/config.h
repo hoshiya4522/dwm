@@ -2,7 +2,7 @@
 static const Block blocks[] = {
 	/*Icon*/	/*Command*/		    /*Update Interval*/	/*Update Signal*/
 	{"   ",	"net-down",	    1,	0},
-    {"墳 ",	"get-volume",	0,	2},
+    {"",	"get-volume",	0,	2},
     {"",	"sb-battery",	    1,	0},
     {"",	"date '+ %I:%M %p '",	    60,	0},
     /* {" ",	"echo [$(\"sb-nettraf\")]",	    1,	1}, */

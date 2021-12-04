@@ -74,11 +74,13 @@ static const char *downvol[]   = { "vol-down",     NULL };
 static const char *mutevol[] = { "vol-mute",  NULL };
 static const char *sd[] = { "shutdownAndOthersCTL",  NULL };
 static const char *ec[] = { "editConfig",  NULL };
+static const char *thunar[] = { "thunar",  NULL };
 
 #include "movestack.c"
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ ALT,                          XK_c,      spawn,          {.v = ec } },
+	{ ALT,                          XK_f,      spawn,          {.v = thunar } },
 	{ ALT,                          XK_b,      spawn,          {.v = firefox } },
 	{ ALT,                          XK_s,      spawn,          {.v = screenshot } },
 	{ ALT|ShiftMask,                XK_s,      spawn,          {.v = selectScreenshot } },
