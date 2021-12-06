@@ -79,6 +79,7 @@ static const char *thunar[] = { "thunar",  NULL };
 #include "movestack.c"
 static Key keys[] = {
 	/* modifier                     key        function        argument */
+	{ ALT,                          XK_t,      spawn,          {.v = alacritty } },
 	{ ALT,                          XK_c,      spawn,          {.v = ec } },
 	{ ALT,                          XK_f,      spawn,          {.v = thunar } },
 	{ ALT,                          XK_b,      spawn,          {.v = firefox } },
