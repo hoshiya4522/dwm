@@ -13,38 +13,8 @@ static const char *fonts[] = {"agave Nerd Font:style=Regular;size=8"};
 static const char dmenufont[]       = "agave Nerd Font:style=Regular;size=8";
 
 
-
-/* Polar Night */
-static const char nord_00[]       = "#2e3440";
-static const char nord_01[]       = "#3b4252";
-static const char nord_02[]       = "#434c5e";
-static const char nord_03[]       = "#4c566a";
-/* Snow Storm */
-static const char nord_04[]       = "#d8dee9";
-static const char nord_05[]       = "#e5e9f0";
-static const char nord_06[]       = "#eceff4";
-/* Frost */
-static const char nord_07[]       = "#8fbcbb";
-static const char nord_08[]       = "#88c0d0";
-static const char nord_09[]       = "#81a1c1";
-static const char nord_10[]       = "#5e81ac";
-/* Aurora */
-static const char nord_11[]       = "#bf616a";
-static const char nord_12[]       = "#d08770";
-static const char nord_13[]       = "#ebcb8b";
-static const char nord_14[]       = "#a3be8c";
-static const char nord_15[]       = "#b48ead";
-
-static const char tmp[]       = "";
-static const char tmp2[]      = "#8FCBD9";
-
-static const char *colors[][3]      = {
-	/*                 fg       bg       border   */
-	[SchemeNorm]   = { nord_05, nord_00, nord_08 },
-	/* [SchemeSel]    = { nord_06, nord_03, nord_04 }, */
-	[SchemeSel] = { nord_00, nord_08, nord_04},
-	[SchemeTitle]  = { nord_06, nord_00, nord_04 },
-};
+/* #include "themes/nord.h" */
+#include "themes/tokyonight.h"
 
 /* tagging */
 static const char *tags[] = { " ", " ", " ", " ", " ", " ", "力 ", " ", " " };
@@ -61,6 +31,7 @@ static const Rule rules[] = {
 	{ "Firefox",    NULL,       NULL,                  1 << 8,     0,          0,          -1,        -1 },
 	{ "st",         NULL,       NULL,                  0,          0,          1,           0,        -1 },
 	{ "Alacritty",  NULL,       NULL,                  0,          0,          1,           0,        -1 },
+	{ "eww-example", NULL,  NULL,  0,          1,          0,           1,        -1 }, /* xev */
 	{ "firefox",    "Toolkit",  "Picture-in-Picture",  0,          1,          0,           1,        -1 }, /* xev */
 	{ NULL,         NULL,       "Event Tester",        0,          0,          0,           1,        -1 }, /* xev */
 };
@@ -93,9 +64,6 @@ static const Layout layouts[] = {
 #define STATUSBAR "dwmblocks"
 
 /* commands */
-static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", nord_00, "-nf", nord_05, "-sb", nord_08, "-sf", nord_00, NULL };
 /* static const char *st[]  = { "st", NULL }; */
 static const char *alacritty[]  = { "alacritty", NULL };
 static const char *firefox[]  = { "firefox", NULL };
@@ -104,10 +72,16 @@ static const char *selectScreenshot[]  = { "select-screenshot", NULL };
 static const char *upvol[]   = { "vol-up",     NULL };
 static const char *downvol[]   = { "vol-down",     NULL };
 static const char *mutevol[] = { "vol-mute",  NULL };
+static const char *sd[] = { "shutdownAndOthersCTL",  NULL };
+static const char *ec[] = { "editConfig",  NULL };
+static const char *thunar[] = { "thunar",  NULL };
 
 #include "movestack.c"
 static Key keys[] = {
 	/* modifier                     key        function        argument */
+	{ ALT,                          XK_t,      spawn,          {.v = alacritty } },
+	{ ALT,                          XK_c,      spawn,          {.v = ec } },
+	{ ALT,                          XK_f,      spawn,          {.v = thunar } },
 	{ ALT,                          XK_b,      spawn,          {.v = firefox } },
 	{ ALT,                          XK_s,      spawn,          {.v = screenshot } },
 	{ ALT|ShiftMask,                XK_s,      spawn,          {.v = selectScreenshot } },
@@ -115,6 +89,7 @@ static Key keys[] = {
 	{ ALT,                          XK_equal,  spawn,          {.v = upvol } },
 	{ ALT,                          XK_minus,  spawn,          {.v = downvol } },
 	{ ALT,                          XK_0,      spawn,          {.v = mutevol } },
+	{ MODKEY,                       XK_s,      spawn,          {.v = sd } },
 
 	{ MODKEY,                       XK_r,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = alacritty } },
@@ -163,9 +138,10 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
  	{ MODKEY,                       XK_n,      togglealttag,   {0} },
-	{ MODKEY|ALT,                       XK_minus,  setgaps,        {.i = -1 } },
-	{ MODKEY|ALT,                       XK_equal,  setgaps,        {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = 0  } },
+	{ MODKEY|ALT,                   XK_minus,  setgaps,        {.i = -1 } },
+	{ MODKEY|ALT,                   XK_equal,  setgaps,        {.i = +1 } },
+	{ MODKEY|ALT,                   XK_0,	   setgaps,        {.i = 10 } },
+	{ MODKEY|ALT,					XK_BackSpace,  setgaps,    {.i = 0  } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
