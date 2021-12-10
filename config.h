@@ -42,11 +42,16 @@ static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
 static const int lockfullscreen = 0; /* 1 will force focus on the fullscreen window */
 
+#include "./centeredmaster.c"
+#include "./deck.c"
 static const Layout layouts[] = {
 	/* symbol     arrange function */
 	{ " []=",      tile },    /* first entry is default */
 	{ " ><>",      NULL },    /* no layout function means floating behavior */
-	{  "[M]",      monocle },
+	{ " [M]",      monocle },
+	{ " [D]",      deck },
+	{ " |M|",      centeredmaster },
+	{ " >M>",      centeredfloatingmaster },
 };
 
 /* key definitions */
@@ -113,6 +118,9 @@ static Key keys[] = {
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
+	{ MODKEY,                       XK_c,      setlayout,      {.v = &layouts[3]} },
+	{ MODKEY,                       XK_u,      setlayout,      {.v = &layouts[4]} },
+	{ MODKEY,                       XK_o,      setlayout,      {.v = &layouts[5]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_Down,   moveresize,     {.v = "0x 25y 0w 0h" } },
