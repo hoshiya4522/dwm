@@ -10,7 +10,7 @@ sysmodmap=/etc/X11/xinit/.Xmodmap
 
 while true; do
 # bash $HOME/.scripts/vboxres &
-xrandr --output HDMI-0 --mode 1920x1080 &
+xrandr --output Virtual1 --mode 1920x1080 &
 pkill dwmblocks &
 dwmblocks &
 dunst &
