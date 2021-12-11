@@ -1,4 +1,5 @@
 /* See LICENSE file for copyright and license details. */
+#include <X11/XF86keysym.h>
 
 /* appearance */
 static const unsigned int borderpx  = 0;        /* border pixel of windows */
@@ -91,6 +92,10 @@ static Key keys[] = {
 	{ ALT,                          XK_b,      spawn,          {.v = firefox } },
 	{ ALT,                          XK_s,      spawn,          {.v = screenshot } },
 	{ ALT|ShiftMask,                XK_s,      spawn,          {.v = selectScreenshot } },
+
+	{ 0,                            XF86XK_AudioRaiseVolume,  spawn,    {.v = upvol } },
+	{ 0,                            XF86XK_AudioLowerVolume,  spawn,    {.v = downvol } },
+	{ 0,                            XF86XK_AudioMute,         spawn,    {.v = mutevol } },
 
 	{ ALT,                          XK_equal,  spawn,          {.v = upvol } },
 	{ ALT,                          XK_minus,  spawn,          {.v = downvol } },
