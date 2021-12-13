@@ -15,6 +15,6 @@ pkill dwmblocks &
 dwmblocks &
 dunst &
 # feh ~/Pictures/Wallpapers/acyclovir.png --bg-fill &
-feh ~/Git/dwm/wallpapers/tokyonight -z --bg-fill &
+feh ~/Git/dwm/wallpapers/tokyonight/tokyonight2.jpg --bg-fill &
 dwm >/dev/null 2>&1 
 done

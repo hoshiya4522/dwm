@@ -15,6 +15,7 @@ static const char dmenufont[]       = "agave Nerd Font:style=Regular;size=8";
 
 
 /* #include "themes/nord.h" */
+/* #include "themes/tokyonight-storm.h" */
 #include "themes/tokyonight.h"
 
 /* tagging */
