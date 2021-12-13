@@ -11,8 +11,7 @@ sysmodmap=/etc/X11/xinit/.Xmodmap
 while true; do
 # bash $HOME/.scripts/vboxres &
 xrandr --output Virtual1 --mode 1920x1080 &
-pkill dwmblocks &
-dwmblocks &
+killall -q dwmblocks; dwmblocks &
 dunst &
 # feh ~/Pictures/Wallpapers/acyclovir.png --bg-fill &
 feh ~/Git/dwm/wallpapers/tokyonight/tokyonight2.jpg --bg-fill &
