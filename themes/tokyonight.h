@@ -1,16 +1,17 @@
-static const char bar[]       = "#16161E";
-static const char hl[]       = "#7aa2f7";
-static const char sel[]       = "#c0caf5";
-static const char black[]       = "#c0caf5";
+static const char bar[]         = "#16161E";
+static const char hl[]          = "#7aa2f7";
+static const char sel[]         = "#c0caf5";
+static const char black[]       = "#444444";
 static const char white[]       = "#c0caf5";
+static const char borderColor[]       = "#36364E";
+
 
 
 static const char *colors[][3]      = {
-	/*                 fg       bg       border   */
-	/* [SchemeNorm]   = { white, bar, hl }, */
-	[SchemeNorm]   = { white, bar, hl },
-	[SchemeSel]    = { bar, hl, white},
-	[SchemeTitle]  = { white, bar, white },
+	/*                 fg     bg    border   */
+	[SchemeNorm]   = { white, bar,  bar },
+	[SchemeSel]    = { bar,   hl,   borderColor },
+	[SchemeTitle]  = { white, bar,  white },
 };
 
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
