@@ -2,6 +2,7 @@
 #include <X11/XF86keysym.h>
 
 /* appearance */
+static const unsigned int showWindowNumber = 0;		 /* 1 means show number of windows in monocle and deck layout. 0 means show the default symbol */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
