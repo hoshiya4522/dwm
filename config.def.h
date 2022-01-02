@@ -21,6 +21,7 @@ static const char dmenufont[]   =   "agave Nerd Font:style=Regular;size=8";
 
 /* theme */
 #include "themes/tokyonight.h"
+/* #include "themes/nord.h" */
 
 
 /* tagging */
@@ -104,6 +105,7 @@ static Key keys[] = {
 	{ ALT,                          XK_c,                     spawn,          {.v = ec } },
 	{ ALT,                          XK_f,                     spawn,          {.v = thunar } },
 	{ ALT,                          XK_b,                     spawn,          {.v = firefox } },
+	{ ALT,                          XK_p,                     spawn,          SHCMD("firefox --private-window") },
 	{ ALT,                          XK_s,                     spawn,          {.v = screenshot } },
 	{ ALT|ShiftMask,                XK_s,                     spawn,          {.v = selectScreenshot } },
 	{ 0,                            XF86XK_AudioRaiseVolume,  spawn,          {.v = upvol } },
